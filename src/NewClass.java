@@ -1,4 +1,4 @@
-
+import org.json.*;  
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -45,6 +45,14 @@ public class NewClass {
             }
             //va sempre chiusa
             scanner.close();
+            
+            //stampo la risposta
+            System.out.println(infoString);
+            
+            //Converto la stringa in formato JSON;
+            JSONParser parse = new JSONParser();
+            JSONArray dataObject = (JSONArray) parse.parse(String.valueOf(infoString));
         }
         
+    }
 }
