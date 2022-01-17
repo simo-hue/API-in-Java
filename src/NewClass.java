@@ -1,4 +1,7 @@
-import org.json.*;  
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;  
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -52,6 +55,13 @@ public class NewClass {
             //Converto la stringa in formato JSON;
             JSONParser parse = new JSONParser();
             JSONArray dataObject = (JSONArray) parse.parse(String.valueOf(infoString));
+            
+            System.out.println(dataObject.get(0));
+            
+            JSONbject datiPerCittà = (JSONbject) datiPerCittà.get(0);
+            
+            //mi faccio resituire il tipo di dato inserito dall'utente (città-paese-...)
+            System.out.println(datiPerCittà.get("location_type"));
         }
         
     }
