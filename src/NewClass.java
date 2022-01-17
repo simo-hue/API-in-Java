@@ -21,6 +21,7 @@ public class NewClass {
         
         Scanner sc = new Scanner(System.in);
         String Città = "";
+        int Risposta;
         
         //imposto l'URL dalla quale ricevero l'array in formato JSON
         URL url = new URL("https://www.metaweather.com/api/location/search/?query=");
@@ -29,5 +30,12 @@ public class NewClass {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.connect();
+        
+        //Tramite la variabile risposta controllo se è stata effettuata la connesione con successo o meno
+        Risposta = conn.getResponseCode();
+        
+        
+        
+        
     }
 }
