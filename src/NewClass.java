@@ -8,13 +8,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 import jdk.jshell.spi.ExecutionControl;
+import org.json.simple.parser.ParseException;
 
 /**
  *
  * @author simonemattioli
  */
 public class NewClass {
-    public static void main(String[] args) throws MalformedURLException, IOException {
+    public static void main(String[] args) throws MalformedURLException, IOException, ParseException {
         //api e link
         //https://www.metaweather.com/api/location/search/?query=<>
         
@@ -22,7 +23,8 @@ public class NewClass {
         String Città = "";
         int Risposta;
         
-        System.out.println("Digitare il ");
+        try {
+                System.out.println("Digitare il ");
         //imposto l'URL dalla quale ricevero l'array in formato JSON
         URL url = new URL("https://www.metaweather.com/api/location/search/?query=");
         
@@ -58,10 +60,14 @@ public class NewClass {
             
             System.out.println(dataObject.get(0));
             
-            JSONbject datiPerCittà = (JSONbject) datiPerCittà.get(0);
+            JSONObject datiPerCittà;
+            datiPerCittà = (JSONObject) datiPerCittà.get(0);
             
             //mi faccio resituire il tipo di dato inserito dall'utente (città-paese-...)
             System.out.println(datiPerCittà.get("location_type"));
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         
     }
